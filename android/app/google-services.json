@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "140271829645",
+    "project_id": "gestionportefeuille-29d9e",
+    "storage_bucket": "gestionportefeuille-29d9e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140271829645:android:a0023e0b0ae223383e58c4",
+        "android_client_info": {
+          "package_name": "com.example.gestionportefeuille"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8UnQMLljCsQL_eo-5NxKaFYK8FkRLmfA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
