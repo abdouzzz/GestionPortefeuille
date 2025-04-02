@@ -1,29 +1,30 @@
+// This is a basic Flutter widget test.
+//
+// To perform an interaction with a widget in your test, use the WidgetTester
+// utility in the flutter_test package. For example, you can send tap and scroll
+// gestures. You can also use WidgetTester to find child widgets in the widget
+// tree, read text, and verify that the values of widget properties are correct.
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gestion_portefeuille/app_view.dart';
-import 'firebase_test_mock.dart'; // Importe ton mock Firebase
+import 'package:gestion_portefeuille/app.dart';
+
+import 'package:gestion_portefeuille/main.dart';
 
 void main() {
-  testWidgets('Counter increments test', (WidgetTester tester) async {
-    // Initialiser Firebase avec le mock
-    await setupFirebaseForTests();
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const MyApp());
 
-    // Construire l'interface utilisateur
-    await tester.pumpWidget(const MyAppView());
-
-    // Vérifier que le compteur commence à 0
+    // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
 
-    // Vérifier que le bouton d'incrémentation existe
-    final Finder incrementButton = find.byIcon(Icons.add);
-    expect(incrementButton, findsOneWidget);
+    // Tap the '+' icon and trigger a frame.
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pump();
 
-    // Simuler un tap sur le bouton "+"
-    await tester.tap(incrementButton);
-    await tester.pumpAndSettle();
-
-    // Vérifier que le compteur est passé à 1
+    // Verify that our counter has incremented.
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
